@@ -76,7 +76,7 @@ const reverseFibonacci=function(noOfTerms){
 exports.reverseFibonacci=reverseFibonacci;
 
 //function to find the greatest number in an given array
-const greatestNumber=function(source){
+const getGreatestNumber=function(source){
   let result=0;
   for(let index=0; index<source.length; index++){
     if(result<source[index])
@@ -84,4 +84,33 @@ const greatestNumber=function(source){
   }
   return result;
 }
-exports.greatestNumber=greatestNumber;
+exports.greatestNumber=getGreatestNumber;
+
+const getSmallestNumber=function(source){
+  let result=source[0];
+  for(let index=0; index<source.length; index++){
+    if(result>source[index])
+      result=source[index];
+  }
+  return result;
+}
+exports.getSmallestNumber=getSmallestNumber;
+
+const average=function(source){
+  let result=0;
+  for(let index=0; index<source.length; index++){
+    result+=source[index];
+  }
+  return result/(source.length);
+}
+exports.average=average;
+
+const mapLength=function(source){
+  let result=[];
+  for(let index=0; index<source.length; index++){
+    result.push(source[index].length);
+  }
+  return result;
+}
+exports.mapLength=mapLength;
+
