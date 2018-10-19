@@ -221,3 +221,33 @@ const union = function(list1,list2){
   return unique(result);
 }
 exports.union=union;
+
+const intersection = function(source1,source2){
+  let testObject={};
+  let result=[];
+  for(let index=source1.length-1; index>=0; index--){
+    testObject[source1[index]]=source1[index];
+  }
+  let length=source2.length;
+  for(let index=0; index<length; index++){
+    if(testObject[source2[index]]==source2[index])
+      result.push(source2[index]);
+  }
+  return unique(result);
+}
+exports.intersection=intersection;
+
+const difference = function(source1,source2){
+  let testObject={};
+  let result=[];
+  for(let index=source2.length-1; index>=0; index--){
+    testObject[source2[index]]=source2[index];
+  }
+  let length=source1.length;
+  for(let index=0; index<length; index++){
+    if(testObject[source1[index]]!=source1[index])
+      result.push(source1[index]);
+  }
+  return unique(result);
+}
+exports.difference=difference;
