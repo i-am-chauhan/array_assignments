@@ -266,3 +266,20 @@ const isSubset = function(set,subset){
 }
 exports.isSubset=isSubset;
 
+const zip = function(source1,source2){
+  let result=[];
+  let arrayContent=[];
+  let length=source1.length;
+  if(source2.length<source1.length){
+    length=source2.length;
+  }
+  for(let index=0; index<length; index++){
+    arrayContent[0]=source1[index];
+    arrayContent[1]=source2[index];
+    result.push(arrayContent.slice());
+  }
+  return result;
+}
+exports.zip=zip;
+
+
