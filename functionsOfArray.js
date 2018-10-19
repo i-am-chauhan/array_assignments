@@ -133,3 +133,91 @@ const countEvens=function(source){
   return count;
 }
 exports.countEvens=countEvens;
+
+const countNumbersAbove=function(source,limit){
+  let count=0;
+  for(let index=0; index<source.length; index++){
+    if(source[index]>limit)
+      count++;
+  }
+  return count;
+}
+exports.countNumbersAbove=countNumbersAbove;
+
+const countNumbersBelow=function(source,limit){
+  let count=0;
+  for(let index=0; index<source.length; index++){
+    if(source[index]<limit)
+      count++;
+  }
+  return count;
+}
+exports.countNumbersBelow=countNumbersBelow;
+
+const indexOfValue=function(source,value){
+  let count='';
+  for(let index=0; index<source.length; index++){
+    if(source[index]==value){
+      count=index;
+    }
+  }
+  return count;
+}
+exports.indexOfValue=indexOfValue;
+
+const isAscending=function(source){
+  message=true;
+  for(let index=0; index<source.length-1; index++){
+    message=(source[index]<source[index+1]);
+    if(!message){
+      return message;
+    }
+  }
+  return message;
+}
+exports.isAscending=isAscending;
+
+const isDescending=function(source){
+  message=true;
+  for(let index=0; index<source.length-1; index++){
+    message=(source[index]>source[index+1]);
+    if(!message){
+      return message;
+    }
+  }
+  return message;
+}
+exports.isDescending=isDescending;
+
+const extractDigits = function(number){
+  let digitsOfNumbers=[];
+  let string=""+number;
+  for(let index=0; index<string.length; index++){
+    digitsOfNumbers.push(+string[index]);
+  }
+  return digitsOfNumbers;
+}
+exports.extractDigits=extractDigits;
+
+const unique = function(source){
+  let testObject={};
+  let result=[];
+  for(let index=source.length-1; index>=0; index--){
+    testObject[source[index]]=index;
+  }
+  let keys=Object.keys(testObject);
+  for(let index=0; index<keys.length; index++){
+    result.push(+keys[index]);
+  }
+  return result;
+}
+exports.unique=unique;
+
+const union = function(list1,list2){
+  let result=list1.slice();
+  for(let index=0; index<list2.length; index++){
+    result.push(list2[index]);
+  }
+  return unique(result);
+}
+exports.union=union;
