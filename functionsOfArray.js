@@ -1,3 +1,6 @@
+const sortArray=function(a,b){
+  return a-b;
+}
 //function to select odd numbers in an array
 const selectOddNumbers=function(source){
   let result=[]
@@ -282,4 +285,33 @@ const zip = function(source1,source2){
 }
 exports.zip=zip;
 
+const rotate = function(source,indexFromRotate){
+  let result=[];
+  let sourceIndex=0;
+  for(let index=0; index<source.length; index++){
+    sourceIndex=indexFromRotate+index;
+    if(sourceIndex>=source.length){
+      sourceIndex=sourceIndex-source.length;
+    }
+    result[index]=source[sourceIndex];
+  }
+  return result;
+}
+exports.rotate=rotate;
 
+const partition= function(source,value){
+  let result=[];
+  let firstNestedArray=[];
+  let secNestedArray=[];
+  for(let index=0; index<source.length; index++){
+    if(source[index]<=value){
+      firstNestedArray.push(source[index]);
+    } else {
+      secNestedArray.push(source[index]);
+    }
+  }
+  result[0]=firstNestedArray.sort(sortArray);
+  result[1]=secNestedArray.sort(sortArray);
+  return result;
+}
+exports.partition=partition;
