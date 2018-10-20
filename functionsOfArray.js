@@ -142,12 +142,10 @@ const isDescending=function(source){
 exports.isDescending=isDescending;
 
 const extractDigits = function(number){
-  let digitsOfNumbers=[];
   let string=""+number;
-  for(let index=0; index<string.length; index++){
-    digitsOfNumbers.push(+string[index]);
-  }
-  return digitsOfNumbers;
+  return string.split('').map(function(element) {
+    return +element;
+  });
 }
 exports.extractDigits=extractDigits;
 
