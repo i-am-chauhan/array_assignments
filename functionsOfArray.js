@@ -2,26 +2,18 @@ const sortArray=function(a,b){
   return a-b;
 }
 //function to select odd numbers in an array
-const selectOddNumbers=function(source){
-  let result=[]
-  for(let index=0; index<source.length; index++){
-    if(source[index]%2!=0){
-      result.push(source[index]);
-    }
-  }
-  return result;
+const selectOddNumbers=function(source) {
+  return source.filter(function(number) { 
+    return number%2!=0;
+  });
 }
 exports.selectOddNumbers=selectOddNumbers;
 
 //function to select even numbers in an array
 const selectEvenNumber=function(source){
-  let result=[]
-  for(let index=0; index<source.length; index++){
-    if(source[index]%2==0){
-      result.push(source[index]);
-    }
-  }
-  return result;
+  return source.filter(function(number) { 
+    return number%2==0;
+  });
 }
 exports.listOfEvenNumbers=selectEvenNumber;
 
