@@ -219,19 +219,11 @@ const rotate = function(source,indexFromRotate){
 }
 exports.rotate=rotate;
 
-const partition= function(source,value){
-  let result=[];
-  let firstNestedArray=[];
-  let secNestedArray=[];
-  for(let index=0; index<source.length; index++){
-    if(source[index]<=value){
-      firstNestedArray.push(source[index]);
-    } else {
-      secNestedArray.push(source[index]);
-    }
-  }
-  result[0]=firstNestedArray.sort(sortArray);
-  result[1]=secNestedArray.sort(sortArray);
-  return result;
+const partition= function(source,limit){
+  let result=source.reduce(function(initializer,value) {
+    value<=limit ? initializer[0].push(value):initializer[1].push(value);
+  return initializer;
+  },[[],[]]);
+  return [result[0].sort(sortArray),result[1].sort(sortArray)];
 }
 exports.partition=partition;
