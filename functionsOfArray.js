@@ -150,16 +150,10 @@ const extractDigits = function(number){
 exports.extractDigits=extractDigits;
 
 const unique = function(source){
-  let testObject={};
-  let result=[];
-  for(let index=source.length-1; index>=0; index--){
-    testObject[source[index]]=index;
-  }
-  let keys=Object.keys(testObject);
-  for(let index=0; index<keys.length; index++){
-    result.push(+keys[index]);
-  }
-  return result;
+  return Object.keys(source.reduce(function(initialValue,element,index) {
+    initialValue[element]=index;
+    return initialValue;
+  },{}));
 }
 exports.unique=unique;
 
