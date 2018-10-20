@@ -122,19 +122,17 @@ const indexOfValue=function(source,value){
 exports.indexOfValue=indexOfValue;
 
 const isAscending=function(source){
-  message=true;
-  for(let index=0; index<source.length-1; index++){
-    message=(source[index]<source[index+1]);
-    if(!message){
-      return message;
-    }
-  }
-  return message;
+  let message=true;
+  return source.every(function(element,index,array) {
+    if(index<array.length-1)
+      message=(array[index+1]>element);
+    return message;
+  });
 }
 exports.isAscending=isAscending;
 
 const isDescending=function(source){
-  message=true;
+  let message=true;
   for(let index=0; index<source.length-1; index++){
     message=(source[index]>source[index+1]);
     if(!message){
