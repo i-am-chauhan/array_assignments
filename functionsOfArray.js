@@ -158,10 +158,10 @@ const unique = function(source){
 exports.unique=unique;
 
 const union = function(list1,list2){
-  let result=list1.slice();
-  for(let index=0; index<list2.length; index++){
-    result.push(list2[index]);
-  }
+  let result=list2.reduce(function(initializer,element) {
+    initializer.push(element);
+    return initializer;
+  },list1);
   return unique(result);
 }
 exports.union=union;
