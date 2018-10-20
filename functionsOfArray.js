@@ -183,16 +183,9 @@ const difference = function(source1,source2){
 exports.difference=difference;
 
 const isSubset = function(set,subset){
-  let testObject={};
-  for(let index=set.length-1; index>=0; index--){
-    testObject[set[index]]=set[index];
-  }
-  let length=subset.length;
-  for(let index=0; index<length; index++){
-    if(testObject[subset[index]]!=subset[index])
-      return false;
-  }
-  return true;
+  return subset.every(function(element) {
+    return set.includes(element);
+  });
 }
 exports.isSubset=isSubset;
 
