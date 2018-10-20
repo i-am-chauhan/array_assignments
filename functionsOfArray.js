@@ -86,11 +86,9 @@ const average=function(source){
 exports.average=average;
 
 const mapLength=function(source){
-  let result=[];
-  for(let index=0; index<source.length; index++){
-    result.push(source[index].length);
-  }
-  return result;
+  return source.map(function(element) {
+    return element.length;
+  });
 }
 exports.mapLength=mapLength;
 
