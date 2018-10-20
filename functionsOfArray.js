@@ -167,16 +167,9 @@ const union = function(list1,list2){
 exports.union=union;
 
 const intersection = function(source1,source2){
-  let testObject={};
-  let result=[];
-  for(let index=source1.length-1; index>=0; index--){
-    testObject[source1[index]]=source1[index];
-  }
-  let length=source2.length;
-  for(let index=0; index<length; index++){
-    if(testObject[source2[index]]==source2[index])
-      result.push(source2[index]);
-  }
+  let result= source2.filter(function(element) {
+  return source1.includes(element);
+  });
   return unique(result);
 }
 exports.intersection=intersection;
