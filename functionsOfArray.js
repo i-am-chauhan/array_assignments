@@ -133,13 +133,11 @@ exports.isAscending=isAscending;
 
 const isDescending=function(source){
   let message=true;
-  for(let index=0; index<source.length-1; index++){
-    message=(source[index]>source[index+1]);
-    if(!message){
-      return message;
-    }
-  }
-  return message;
+  return source.every(function(element,index,array) {
+    if(index<array.length-1)
+      message=(array[index+1]<element);
+    return message;
+  });
 }
 exports.isDescending=isDescending;
 
