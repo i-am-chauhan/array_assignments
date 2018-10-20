@@ -98,12 +98,7 @@ const countOdds=function(source){
 exports.countOdds=countOdds;
 
 const countEvens=function(source){
-  let count=0;
-  for(let index=0; index<source.length; index++){
-    if(source[index]%2==0)
-      count++;
-  }
-  return count;
+  return selectEvenNumber(source).length;
 }
 exports.countEvens=countEvens;
 
