@@ -74,21 +74,14 @@ const getGreatestNumber=function(source){
 exports.greatestNumber=getGreatestNumber;
 
 const getSmallestNumber=function(source){
-  let result=source[0];
-  for(let index=0; index<source.length; index++){
-    if(result>source[index])
-      result=source[index];
-  }
-  return result;
+  return source.reduce(function(firstNumber,secNumber) {
+    return firstNumber<secNumber?firstNumber:secNumber;
+  });
 }
 exports.getSmallestNumber=getSmallestNumber;
 
 const average=function(source){
-  let result=0;
-  for(let index=0; index<source.length; index++){
-    result+=source[index];
-  }
-  return result/(source.length);
+  return sumOfElements(source)/source.length;
 }
 exports.average=average;
 
