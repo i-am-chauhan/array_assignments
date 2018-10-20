@@ -10,22 +10,20 @@ const selectOddNumbers=function(source) {
 exports.selectOddNumbers=selectOddNumbers;
 
 //function to select even numbers in an array
-const selectEvenNumber=function(source){
+const selectEvenNumber=function(source) {
   return source.filter(function(number) { 
     return number%2==0;
   });
-}
+} 
 exports.listOfEvenNumbers=selectEvenNumber;
 
 //function to add all numbers of an given array
-const sum=function(source){
-  result=0;
-  for(let index=0; index<source.length; index++){
-    result+=source[index];
-  }
-  return result;
+const sumOfElements=function(source) {
+  return source.reduce(function(num1,num2) {
+    return num1 + num2;
+  });
 }
-exports.sum=sum
+exports.sumOfElements=sumOfElements;
 
 //function to select that values which have odd index
 const selectOddIndexValues=function(source){
@@ -53,7 +51,7 @@ const createFibonacciSeries= function(numberOfTerms){
   let result=[];
   result[0]=0;
   if(numberOfTerms>1){
-  result[1]=1;
+    result[1]=1;
   }
   for(let index=2; index<numberOfTerms; index++){
     result[index]=result[index-1]+result[index-2];
