@@ -36,12 +36,10 @@ exports.selectEvenIndexValues=selectEvenIndexValues;
 
 //function to reverse all elements of an array
 const reverse=function(source){
-  let result=[];
-  let length=source.length-1;
-  for(let index=length; index>=0; index--){
-    result.push(source[index]);
-  }
-  return result;
+  return source.reduce(function(initializer,value) {
+    initializer.unshift(value);
+    return initializer;
+  },[]);
 }
 exports.reverse=reverse;
 
