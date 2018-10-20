@@ -1,7 +1,11 @@
-const test=require('assert');
+const assert=require('assert');
 const indexOfValue=require('../functionsOfArray.js').indexOfValue;
 
-test.deepEqual(indexOfValue([2,4,6,8],4),1);
-test.deepEqual(indexOfValue([2,4,6,8],2),0);
-test.deepEqual(indexOfValue([2,4,6,8],6),2);
-test.deepEqual(indexOfValue([2,4,6,8],7),'');
+assert.deepEqual(indexOfValue([2,4,6,8],4),1);
+console.log('1st test passed');
+assert.deepEqual(indexOfValue([2,4,6,8],2),0);
+console.log('2nd test passed');
+assert.deepEqual(indexOfValue([2,4,6,8],6),2);
+console.log('3rd test passed');
+assert.deepEqual(indexOfValue([2,4,6,8],7),undefined);
+console.log('4th test passed');

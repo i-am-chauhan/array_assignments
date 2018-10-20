@@ -117,13 +117,10 @@ const countNumbersBelow=function(source,limit){
 exports.countNumbersBelow=countNumbersBelow;
 
 const indexOfValue=function(source,value){
-  let count='';
-  for(let index=0; index<source.length; index++){
-    if(source[index]==value){
-      count=index;
-    }
-  }
-  return count;
+  return source.reduce(function(initialValue,element,index) {
+    initialValue[element]=index;
+    return initialValue;
+  },{})[value];
 }
 exports.indexOfValue=indexOfValue;
 
