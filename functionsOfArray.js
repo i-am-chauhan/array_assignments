@@ -175,16 +175,9 @@ const intersection = function(source1,source2){
 exports.intersection=intersection;
 
 const difference = function(source1,source2){
-  let testObject={};
-  let result=[];
-  for(let index=source2.length-1; index>=0; index--){
-    testObject[source2[index]]=source2[index];
-  }
-  let length=source1.length;
-  for(let index=0; index<length; index++){
-    if(testObject[source1[index]]!=source1[index])
-      result.push(source1[index]);
-  }
+  let result=source1.filter(function(element) {
+    return !(source2.includes(element));
+  });
   return unique(result);
 }
 exports.difference=difference;
