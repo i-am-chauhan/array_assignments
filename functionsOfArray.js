@@ -67,12 +67,9 @@ exports.reverseFibonacci=reverseFibonacci;
 
 //function to find the greatest number in an given array
 const getGreatestNumber=function(source){
-  let result=0;
-  for(let index=0; index<source.length; index++){
-    if(result<source[index])
-      result=source[index];
-  }
-  return result;
+  return source.reduce(function(firstNumber,secNumber) {
+    return firstNumber>secNumber?firstNumber:secNumber;
+  });
 }
 exports.greatestNumber=getGreatestNumber;
 
