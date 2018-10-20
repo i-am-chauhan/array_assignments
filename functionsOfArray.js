@@ -26,14 +26,13 @@ const sumOfElements=function(source) {
 exports.sumOfElements=sumOfElements;
 
 //function to select that values which have odd index
-const selectOddIndexValues=function(source){
-  let result=[];
-  for(let index=0; index<source.length; index+=2){
-    result.push(source[index]);
-  }
-  return result;
+const selectEvenIndexValues=function(source){
+  return source.filter(function(number,index) {
+    if(index%2==0) 
+      return number;
+  });
 }
-exports.selectOddIndexValues=selectOddIndexValues;
+exports.selectEvenIndexValues=selectEvenIndexValues;
 
 //function to reverse all elements of an array
 const reverse=function(source){
