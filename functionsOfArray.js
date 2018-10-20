@@ -103,12 +103,9 @@ const countEvens=function(source){
 exports.countEvens=countEvens;
 
 const countNumbersAbove=function(source,limit){
-  let count=0;
-  for(let index=0; index<source.length; index++){
-    if(source[index]>limit)
-      count++;
-  }
-  return count;
+  return source.filter(function(value) {
+    return value>limit;
+  }).length;
 }
 exports.countNumbersAbove=countNumbersAbove;
 
