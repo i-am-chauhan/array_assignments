@@ -1,19 +1,24 @@
 const sortArray=function(a,b){
   return a-b;
 }
+
+const isEven=function(number) {
+  return number%2==0;
+}
+
+const isOdd=function(number) {
+  return number%2!=0;
+}
+
 //function to select odd numbers in an array
 const selectOddNumbers=function(source) {
-  return source.filter(function(number) { 
-    return number%2!=0;
-  });
+  return source.filter(isOdd);
 }
 exports.selectOddNumbers=selectOddNumbers;
 
 //function to select even numbers in an array
 const selectEvenNumber=function(source) {
-  return source.filter(function(number) { 
-    return number%2==0;
-  });
+  return source.filter(isEven);
 } 
 exports.listOfEvenNumbers=selectEvenNumber;
 
@@ -150,10 +155,11 @@ const extractDigits = function(number){
 exports.extractDigits=extractDigits;
 
 const unique = function(source){
-  return Object.keys(source.reduce(function(initialValue,element,index) {
-    initialValue[element]=index;
-    return initialValue;
-  },{}));
+  return source.reduce(function(initializer,element) {
+    if(!initializer.includes(element))
+      initializer.push(element);
+    return initializer;
+  },[]).sort(sortArray);
 }
 exports.unique=unique;
 
