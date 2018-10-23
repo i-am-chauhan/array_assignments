@@ -86,10 +86,13 @@ const getGreatestNumber=function(source){
 }
 exports.greatestNumber=getGreatestNumber;
 
+//function to find the smallest number in an given array
+const min=function(firstNumber,secNumber) {
+  return firstNumber<secNumber?firstNumber:secNumber;
+}
+
 const getSmallestNumber=function(source){
-  return source.reduce(function(firstNumber,secNumber) {
-    return firstNumber<secNumber?firstNumber:secNumber;
-  });
+  return source.reduce(min);
 }
 exports.getSmallestNumber=getSmallestNumber;
 
@@ -182,7 +185,7 @@ exports.union=union;
 
 const intersection = function(source1,source2){
   let result= source2.filter(function(element) {
-  return source1.includes(element);
+    return source1.includes(element);
   });
   return unique(result);
 }
