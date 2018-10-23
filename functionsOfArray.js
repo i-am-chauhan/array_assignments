@@ -179,14 +179,18 @@ const isDescending=function(source){
 }
 exports.isDescending=isDescending;
 
+//function to extract digilts of a given number in an array
+const convertStringTonumber=function(string) {
+  return +string;
+}
+
 const extractDigits = function(number){
-  let string=""+number;
-  return string.split('').map(function(element) {
-    return +element;
-  });
+  let numberString=""+number;
+  return numberString.split('').map(convertStringTonumber);
 }
 exports.extractDigits=extractDigits;
 
+//function to unique the elements of an given array
 const unique = function(source){
   return source.reduce(function(initializer,element) {
     if(!initializer.includes(element))
@@ -261,7 +265,7 @@ exports.rotate=rotate;
 const partition= function(source,limit){
   let result=source.reduce(function(initializer,value) {
     value<=limit ? initializer[0].push(value):initializer[1].push(value);
-  return initializer;
+    return initializer;
   },[[],[]]);
   return [result[0].sort(sortArray),result[1].sort(sortArray)];
 }
