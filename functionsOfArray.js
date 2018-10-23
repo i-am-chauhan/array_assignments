@@ -96,15 +96,19 @@ const getSmallestNumber=function(source){
 }
 exports.getSmallestNumber=getSmallestNumber;
 
+//function to find average of numbers in an given array
 const average=function(source){
   return sumOfElements(source)/source.length;
 }
 exports.average=average;
 
+//function to map the length of elements of an given array
+const calcLength=function(element) {
+  return element.length;
+}
+
 const mapLength=function(source){
-  return source.map(function(element) {
-    return element.length;
-  });
+  return source.map(calcLength);
 }
 exports.mapLength=mapLength;
 
