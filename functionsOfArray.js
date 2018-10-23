@@ -77,10 +77,12 @@ const reverseFibonacci=function(noOfTerms){
 exports.reverseFibonacci=reverseFibonacci;
 
 //function to find the greatest number in an given array
+const max=function(firstNumber,secNumber) {
+  return firstNumber>secNumber?firstNumber:secNumber;
+}
+
 const getGreatestNumber=function(source){
-  return source.reduce(function(firstNumber,secNumber) {
-    return firstNumber>secNumber?firstNumber:secNumber;
-  });
+  return source.reduce(max);
 }
 exports.greatestNumber=getGreatestNumber;
 
