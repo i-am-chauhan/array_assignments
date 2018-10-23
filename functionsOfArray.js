@@ -33,20 +33,24 @@ const sumOfElements=function(source) {
 exports.sumOfElements=sumOfElements;
 
 //function to select that values which have odd index
+const isEvenIndexValues=function(number,index) {
+  if(isEven(index)) 
+    return number;
+}
+
 const selectEvenIndexValues=function(source){
-  return source.filter(function(number,index) {
-    if(index%2==0) 
-      return number;
-  });
+  return source.filter(isEvenIndexValues);
 }
 exports.selectEvenIndexValues=selectEvenIndexValues;
 
 //function to reverse all elements of an array
+const reversePush=function(initializer,value) {
+  initializer.unshift(value);
+  return initializer;
+}
+
 const reverse=function(source){
-  return source.reduce(function(initializer,value) {
-    initializer.unshift(value);
-    return initializer;
-  },[]);
+  return source.reduce(reversePush,[]);
 }
 exports.reverse=reverse;
 
