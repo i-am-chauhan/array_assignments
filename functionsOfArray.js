@@ -148,28 +148,34 @@ const countNumbersBelow=function(source,limit){
 }
 exports.countNumbersBelow=countNumbersBelow;
 
+//function to find index of given value in an given array
 const indexOfValue=function(source,value){
   return source.indexOf(value);
 }
 exports.indexOfValue=indexOfValue;
 
+//function to check if a given array is in ascending order or not
 const isAscending=function(source){
   let message=true;
-  return source.every(function(element,index,array) {
-    if(index<array.length-1)
-      message=(array[index+1]>element);
-    return message;
-  });
+  for(let index=0; index<source.length-1; index++){
+    message=(source[index+1]>source[index]);
+    if(!message)
+      return message;
+  }
+  return message;
 }
+
 exports.isAscending=isAscending;
 
+//function to check if a given array is in descending order or not
 const isDescending=function(source){
   let message=true;
-  return source.every(function(element,index,array) {
-    if(index<array.length-1)
-      message=(array[index+1]<element);
-    return message;
-  });
+  for(let index=0; index<source.length-1; index++){
+    message=(source[index+1]<source[index]);
+    if(!message)
+      return message;
+  }
+  return message;
 }
 exports.isDescending=isDescending;
 
