@@ -10,6 +10,10 @@ const isOdd=function(number) {
   return number%2!=0;
 }
 
+const sumOfTwoNumbers=function(num1,num2) {
+  return num1 + num2;
+}
+
 //function to select odd numbers in an array
 const selectOddNumbers=function(source) {
   return source.filter(isOdd);
@@ -24,9 +28,7 @@ exports.listOfEvenNumbers=selectEvenNumber;
 
 //function to add all numbers of an given array
 const sumOfElements=function(source) {
-  return source.reduce(function(num1,num2) {
-    return num1 + num2;
-  });
+  return source.reduce(sumOfTwoNumbers);
 }
 exports.sumOfElements=sumOfElements;
 
