@@ -112,27 +112,39 @@ const mapLength=function(source){
 }
 exports.mapLength=mapLength;
 
+//function to count odd numbers of an given array
 const countOdds=function(source){
   return selectOddNumbers(source).length;
 }
 exports.countOdds=countOdds;
 
+//function to count even numbers of an given array
 const countEvens=function(source){
   return selectEvenNumber(source).length;
 }
 exports.countEvens=countEvens;
 
-const countNumbersAbove=function(source,limit){
-  return source.filter(function(value) {
+//function to count greater numbers from a given in an given array
+const isabove=function(limit){
+  return function(value) {
     return value>limit;
-  }).length;
+  }
+}
+
+const countNumbersAbove=function(source,limit){
+  return source.filter(isabove(limit)).length;
 }
 exports.countNumbersAbove=countNumbersAbove;
 
-const countNumbersBelow=function(source,limit){
-  return source.filter(function(value) {
+//function to count smaller numbers from a given in an given array
+const isBelow=function(limit){
+  return function(value) {
     return value<limit;
-  }).length;
+  }
+}
+
+const countNumbersBelow=function(source,limit){
+  return source.filter(isBelow(limit)).length;
 }
 exports.countNumbersBelow=countNumbersBelow;
 
