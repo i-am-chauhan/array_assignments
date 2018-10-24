@@ -126,9 +126,10 @@ exports.countEvens=countEvens;
 
 //function to count greater numbers from a given in an given array
 const isabove=function(limit){
-  return function(value) {
+  let message=function(value) {
     return value>limit;
   }
+  return message;
 }
 
 const countNumbersAbove=function(source,limit){
@@ -138,9 +139,10 @@ exports.countNumbersAbove=countNumbersAbove;
 
 //function to count smaller numbers from a given in an given array
 const isBelow=function(limit){
-  return function(value) {
+  let message= function(value) {
     return value<limit;
   }
+  return message;
 }
 
 const countNumbersBelow=function(source,limit){
