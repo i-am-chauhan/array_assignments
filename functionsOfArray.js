@@ -211,29 +211,41 @@ const union = function(list1,list2){
 }
 exports.union=union;
 
+//function to find intersection of two given array
+const isInclude=function(source) {
+  let include=function(element){
+    return source.includes(element);
+  }
+  return include;
+}
+
 const intersection = function(source1,source2){
-  let result= source2.filter(function(element) {
-    return source1.includes(element);
-  });
+  let result= source2.filter(isInclude(source1));
   return unique(result);
 }
 exports.intersection=intersection;
 
+//function to find difference of two given array
+const isNotInclude=function(source) {
+  let include=function(element){
+    return !(source.includes(element));
+  }
+  return include;
+}
+
 const difference = function(source1,source2){
-  let result=source1.filter(function(element) {
-    return !(source2.includes(element));
-  });
+  let result=source1.filter(isNotInclude(source2));
   return unique(result);
 }
 exports.difference=difference;
 
+//function to check subset;
 const isSubset = function(set,subset){
-  return subset.every(function(element) {
-    return set.includes(element);
-  });
+  return subset.every(isInclude(set));
 }
 exports.isSubset=isSubset;
 
+//function to zip elements of two given array;
 const zip = function(source1,source2){
   let result=[];
   let arrayContent=[];
@@ -250,6 +262,7 @@ const zip = function(source1,source2){
 }
 exports.zip=zip;
 
+//function to rotate the elements of given array according to given index;
 const rotate = function(source,indexFromRotate){
   let result=[];
   let sourceIndex=0;
@@ -264,11 +277,18 @@ const rotate = function(source,indexFromRotate){
 }
 exports.rotate=rotate;
 
-const partition= function(source,limit){
-  let result=source.reduce(function(initializer,value) {
-    value<=limit ? initializer[0].push(value):initializer[1].push(value);
+//function to make partition according to a given limit
+const pushAboveLimit=function(limit){
+  let insert=function(initializer,value) {
+    let index=value<=limit ? 0:1;
+    initializer[index].push(value);
     return initializer;
-  },[[],[]]);
+  }
+  return insert;
+}
+
+const partition= function(source,limit){
+  let result=source.reduce(pushAboveLimit(limit),[[],[]]);
   return [result[0].sort(sortArray),result[1].sort(sortArray)];
 }
 exports.partition=partition;
