@@ -191,12 +191,14 @@ const extractDigits = function(number){
 exports.extractDigits=extractDigits;
 
 //function to unique the elements of an given array
+const pushUniqueElemnts=function(initializer,element) {
+  if(!initializer.includes(element))
+    initializer.push(element);
+  return initializer;
+}
+
 const unique = function(source){
-  return source.reduce(function(initializer,element) {
-    if(!initializer.includes(element))
-      initializer.push(element);
-    return initializer;
-  },[]).sort(sortArray);
+  return source.reduce(pushUniqueElemnts,[]).sort(sortArray);
 }
 exports.unique=unique;
 
