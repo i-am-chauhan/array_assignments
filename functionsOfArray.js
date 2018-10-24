@@ -191,23 +191,23 @@ const extractDigits = function(number){
 exports.extractDigits=extractDigits;
 
 //function to unique the elements of an given array
-const pushUniqueElemnts=function(initializer,element) {
-  if(!initializer.includes(element))
+const pushUniqueElements=function(initializer,element) {
+  if(!initializer.includes(element)){
     initializer.push(element);
+  }
   return initializer;
 }
 
 const unique = function(source){
-  return source.reduce(pushUniqueElemnts,[]).sort(sortArray);
+  let result= source.reduce(pushUniqueElements,[]);
+  return result.sort(sortArray);
 }
 exports.unique=unique;
 
+//function to create union of the elements of an given array
 const union = function(list1,list2){
-  let result=list2.reduce(function(initializer,element) {
-    initializer.push(element);
-    return initializer;
-  },list1);
-  return unique(result);
+  let result=list2.reduce(pushUniqueElements,unique(list1));
+  return result.sort(sortArray);
 }
 exports.union=union;
 
